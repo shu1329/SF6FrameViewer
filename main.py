@@ -3,8 +3,8 @@ from frame import chara, frame
 from character_class import Character, Process
 
 def main(page: ft.Page):
-    title_name = "Frame Data Viewer -ver.MAI"
-    update_date = "2025/5/15"
+    title_name = "Frame Data Viewer -ver.ELENA"
+    update_date = "2025/6/9"
     page.title = title_name
     page.vertical_alignment = ft.MainAxisAlignment.START
     page.bgcolor="#FFFFFF"
