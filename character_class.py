@@ -82,7 +82,10 @@ class Process:
     
     def show_counters(self, is_bo: bool, selected_index: int):
         op_move = self.op.counterable_move[selected_index]
-        pc = self.my.search_counters(op_move[2], 1)
+        if is_bo:
+            pc = self.my.search_counters(op_move[2]+4, 1)
+        else:
+            pc = self.my.search_counters(op_move[2], 1)
         nomal = []
         spetial = []
 
