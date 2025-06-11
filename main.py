@@ -4,7 +4,8 @@ from character_class import Character, Process
 
 def main(page: ft.Page):
     title_name = "Frame Data Viewer -ver.ELENA"
-    update_date = "2025/6/10"
+    update_date = "2025/6/11"
+    update_version = "2.4.6"
     page.title = title_name
     page.vertical_alignment = ft.MainAxisAlignment.START
     page.bgcolor="#FFFFFF"
@@ -106,7 +107,10 @@ def main(page: ft.Page):
     tb = ft.TextField(label="発生フレーム", width=180)
     sub = ft.ElevatedButton(text="探す", on_click=lambda e: populate_moves())
     textbox = ft.Container(content=ft.Row([tb, sub]), visible=False)
-    update_text = ft.Text(value="latest update: " + update_date, size=10)
+    date_text = ft.Text(value="latest update: " + update_date, size=10)
+    version_text = ft.Text(value="ver" + update_version, size=10)
+    update_row = ft.Row([date_text, version_text], alignment=ft.MainAxisAlignment.SPACE_BETWEEN, vertical_alignment=ft.CrossAxisAlignment.CENTER)
+
  
     cnt2 = ft.Container(content=ft.Column([
         my_character_dropdown,
@@ -120,7 +124,7 @@ def main(page: ft.Page):
         special_text,
         special_counter_list_view,
         ft.Divider(height=3),
-        update_text
+        update_row
     ]))
 
     cm = ft.Container(
