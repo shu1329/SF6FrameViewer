@@ -4,19 +4,20 @@ from character_class import Character, Process
 
 def main(page: ft.Page):
     title_name = "Frame Data Viewer -ver.ELENA"
-    update_date = "2025/6/11"
-    update_version = "2.4.6"
+    update_date = "2025/6/12"
+    update_version = "2.4.7"
     page.title = title_name
     page.vertical_alignment = ft.MainAxisAlignment.START
     page.bgcolor="#FFFFFF"
     page.scroll=ft.ScrollMode.AUTO
     # ウィンドウサイズの設定
     page.window_height = 800
-    page.window_width = 400
+    page.window_width = 400   
+    
 
     title_text = ft.Text(value=title_name, theme_style=ft.TextThemeStyle.TITLE_MEDIUM)
     
-    attention_button = ft.IconButton(icon=ft.icons.ANNOUNCEMENT_ROUNDED, icon_size=20, on_click=lambda e: open_dlg(e))
+    attention_button = ft.IconButton(icon=ft.icons.ANNOUNCEMENT_ROUNDED, icon_size=20, on_click=lambda e: open_dlg(e, at_dlg))
     
     title = ft.Container(
         ft.Row(
@@ -108,7 +109,7 @@ def main(page: ft.Page):
     sub = ft.ElevatedButton(text="探す", on_click=lambda e: populate_moves())
     textbox = ft.Container(content=ft.Row([tb, sub]), visible=False)
     date_text = ft.Text(value="latest update: " + update_date, size=10)
-    version_text = ft.Text(value="ver" + update_version, size=10)
+    version_text = ft.Text(size=10, spans=[ft.TextSpan(text="ver" + update_version, style=ft.TextStyle(decoration=ft.TextDecoration.UNDERLINE), url="https://github.com/shu1329/SF6FrameViewer")])
     update_row = ft.Row([date_text, version_text], alignment=ft.MainAxisAlignment.SPACE_BETWEEN, vertical_alignment=ft.CrossAxisAlignment.CENTER)
 
  
@@ -159,7 +160,7 @@ def main(page: ft.Page):
         width=700,
         )
     
-    dlg = ft.AlertDialog(
+    at_dlg = ft.AlertDialog(
         title=ft.Text("このシステムにおいて、技のリーチなどは考慮に入れていないため、実際には確反が届かない場合があります",
         size=16,
         ),
@@ -259,7 +260,7 @@ def main(page: ft.Page):
         e.control.bgcolor = ft.colors.BLUE_50 if e.data == "true" else ft
         e.control.update()
         
-    def open_dlg(e):
+    def open_dlg(e, dlg):
         e.control.page.overlay.append(dlg)
         dlg.open = True
         e.control.page.update()
