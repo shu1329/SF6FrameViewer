@@ -3,9 +3,9 @@ from frame import chara, frame
 from character_class import Character, Process
 
 def main(page: ft.Page):
-    title_name = "Frame Data Viewer -ver.VIPER"
+    title_name = "Frame Data Viewer -ver.C.VIPER"
     update_date = "2025/10/18"
-    update_version = "3.2.0"
+    update_version = "3.2.1"
     page.title = title_name
     page.vertical_alignment = ft.MainAxisAlignment.START
     page.bgcolor="#FFFFFF"
