@@ -1,18 +1,18 @@
 import flet as ft
-from frame import chara, frame
+from frame import chara, frame, ver, version, date
 from character_class import Character, Process
 
 def main(page: ft.Page):
-    title_name = "Frame Data Viewer -ver.C.VIPER"
-    update_date = "2025/10/18"
-    update_version = "3.2.1"
+    title_name = "Frame Data Viewer -ver."+ver
+    update_date = date
+    update_version = version
     page.title = title_name
     page.vertical_alignment = ft.MainAxisAlignment.START
     page.bgcolor="#FFFFFF"
     page.scroll=ft.ScrollMode.AUTO
     # ウィンドウサイズの設定
     page.window_height = 800
-    page.window_width = 400   
+    page.window_width = 400
     
 
     title_text = ft.Text(value=title_name, theme_style=ft.TextThemeStyle.TITLE_MEDIUM)
